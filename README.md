@@ -1,0 +1,1 @@
+AVEN RESMİ OLARAK https://chataven.com.tr/ adresinde kullanılır , Ve MIT hakları saklıdır , hiç bir şekilde eposta adresiniz dışı bir bilginizi depolamaz ve bütün bilgileriniz şifrelenir.
