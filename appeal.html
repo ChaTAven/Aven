@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="dark">
+<title>Aven · Hesap İtirazı</title><link rel="icon" type="image/png" href="/image/profil.png"><link rel="stylesheet" href="/support.css">
+</head>
+<body>
+<div class="support-bg"><i></i><i></i></div>
+<header class="support-top"><a class="support-brand" href="/"><img src="/image/profil.png" alt=""><span>Aven<span>.</span></span></a><div class="top-center"><span class="live-dot"></span> HESAP İTİRAZI</div><a class="back-app" href="/">← Ana sayfa</a></header>
+<main class="appeal-shell">
+  <section class="appeal-card" id="appeal-card">
+    <div class="appeal-mark" aria-hidden="true">✉</div>
+    <p class="eyebrow">KAPATILMIŞ HESAP</p>
+    <h1>Hesabına itiraz et</h1>
+    <p class="appeal-lead">Hesabının yanlışlıkla kapatıldığını düşünüyorsan durumunu anlat. Talebin doğrudan ekibe iletilir ve incelenir.</p>
+    <form id="appeal-form" class="appeal-form" novalidate>
+      <label>Hesabının e-posta adresi<input name="email" type="email" autocomplete="email" maxlength="120" required placeholder="ornek@mail.com"></label>
+      <label>Konu<input name="subject" maxlength="100" minlength="4" required value="Hesap kapatma itirazı"></label>
+      <label>Açıklama<textarea name="message" maxlength="4000" minlength="10" required placeholder="Neden hesabının yeniden açılması gerektiğini düşünüyorsun? Ne olduğunu açıkça anlat…"></textarea></label>
+      <p id="appeal-error" class="appeal-error" role="alert"></p>
+      <button class="primary-link appeal-submit" type="submit">Talebi gönder <span>→</span></button>
+    </form>
+    <div class="appeal-notes">
+      <p><b>Yanıt nasıl gelir?</b><br>Ekip talebini inceler. Yanıt verirse hesabına kayıtlı e-posta adresine gönderilir; yanıt vermesi zorunlu değildir.</p>
+      <p><b>Sınırlar</b><br>Aynı anda yalnızca bir açık itirazın olabilir. Lütfen aynı talebi tekrar tekrar göndermeyin.</p>
+    </div>
+    <div class="appeal-success" aria-live="polite"><div class="appeal-check">✓</div><h2>Talebin alındı</h2><p>İtirazın ekibe iletildi. Yanıt verilirse hesabına kayıtlı e-posta adresine gönderilir. Yeniden göndermene gerek yok.</p><a class="primary-link" href="/">Ana sayfaya dön <span>→</span></a></div>
+  </section>
+  <a class="appeal-back" href="/destek">Hesabın aktif mi? Destek merkezine git →</a>
+</main>
+<script src="/appeal.js" defer></script>
+</body></html>

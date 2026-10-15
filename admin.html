@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="color-scheme" content="dark">
+<title>Aven · Yönetim Merkezi</title>
+<link rel="icon" type="image/png" href="/image/profil.png">
+<link rel="stylesheet" href="/admin.css?v=20261014.2">
+<link rel="stylesheet" href="/admin-announcements.css?v=20261013.2">
+</head>
+<body>
+<div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+<section id="login-screen" class="login-screen">
+  <form id="login-form" class="login-card">
+    <a class="login-brand" href="/"><img src="/image/profil.png" alt=""><span>aven<span class="brand-dot">.</span></span></a>
+    <p class="eyebrow">GÜVENLİ YÖNETİCİ OTURUMU</p><h1>Kontrol merkezi</h1>
+    <p class="login-copy">Aven topluluğunun nabzını tek bir yerden izleyin.</p>
+    <label>Kullanıcı adı<input name="username" autocomplete="username" required maxlength="64" placeholder="Yönetici kullanıcı adı"></label>
+    <label>Şifre<input name="password" type="password" autocomplete="current-password" required maxlength="256" placeholder="Yönetici şifresi"></label>
+    <p id="login-error" class="error" aria-live="polite"></p>
+    <button class="button primary login-submit" type="submit">Güvenli giriş <span>→</span></button>
+    <small class="login-foot">Yönetici erişimi sunucu yapılandırmasındaki kimlik bilgileriyle korunur.</small>
+  </form>
+</section>
+<div id="admin-app" class="admin-app" hidden>
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Aven ana sayfa"><span class="brand-mark"><img src="/image/profil.png" alt=""></span><span>Aven<span class="brand-dot">.</span><small>CONTROL CENTER</small></span></a>
+    <div class="workspace"><span class="workspace-icon">A</span><span><b>Aven Topluluğu</b><small>Yönetim alanı</small></span><i class="live-pulse"></i></div>
+    <p class="nav-label">ÇALIŞMA ALANI</p>
+    <nav class="nav">
+      <button class="nav-item active" data-page="overview"><span class="nav-icon">◫</span>Genel Bakış</button>
+      <button class="nav-item" data-page="users"><span class="nav-icon">♙</span>Kullanıcılar<span id="nav-user-count" class="nav-count">—</span></button>
+      <button class="nav-item" data-page="servers"><span class="nav-icon">▦</span>Sunucular</button>
+      <button class="nav-item" data-page="support"><span class="nav-icon">✳</span>Destek<span id="nav-ticket-count" class="nav-count accent-count">0</span></button>
+      <div class="nav-entry"><button class="nav-item" data-page="announcements"><span class="nav-icon">◉</span>Duyurular</button><button type="button" class="nav-add" data-announcement-create title="Yeni duyuru" aria-label="Yeni duyuru">＋</button></div>
+    </nav>
+    <div class="sidebar-bottom">
+      <div class="privacy-note"><span>◈</span><div><b>Gizlilik notu</b><small>LAN IP'leri toplanmaz.<br>Destek talepleri tek yönlüdür.</small></div></div>
+      <div class="admin-profile"><span class="admin-avatar">A</span><span><b id="admin-name">Yönetici</b><small>Yetkili oturum</small></span><button id="logout-button" class="logout-button" title="Oturumu kapat">↗</button></div>
+    </div>
+  </aside>
+  <main class="content">
+    <header class="topbar"><div><span class="breadcrumb">AVEN <i>/</i> <b id="page-crumb">Genel Bakış</b></span><h1 id="page-title">Genel Bakış</h1></div><div class="top-actions"><span class="live-label"><i></i>Canlı veriler</span><button id="refresh-button" class="refresh-button" title="Yenile">↻ <span>Yenile</span></button><span class="date-chip" id="today-label"></span></div></header>
+    <section class="page-section active" id="page-overview">
+      <div class="welcome-row"><div><p class="eyebrow">AVEN YÖNETİMİ · DURUM RAPORU</p><h2>Topluluğunuz nasıl gidiyor?</h2><p>Canlı kullanıcı durumu ve destek kuyruğunun özeti.</p></div><span class="welcome-orbit"><i></i><i></i><b>AV</b></span></div>
+      <div class="metric-grid">
+        <article class="metric-card"><div class="metric-head"><span>Toplam kullanıcı</span><span class="metric-icon blue">♙</span></div><strong id="stat-users">—</strong><small><i class="metric-dot blue-dot"></i>Kayıtlı hesaplar</small><div class="metric-spark spark-blue"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="metric-card"><div class="metric-head"><span>Şu an aktif</span><span class="metric-icon green">◉</span></div><strong id="stat-online">—</strong><small><i class="metric-dot green-dot"></i>Canlı uygulama oturumu</small><div class="metric-spark spark-green"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="metric-card"><div class="metric-head"><span>Toplam sunucu</span><span class="metric-icon violet">▦</span></div><strong id="stat-servers">—</strong><small><i class="metric-dot violet-dot"></i>Oluşturulmuş topluluk sunucuları</small><div class="metric-spark spark-violet"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+        <article class="metric-card"><div class="metric-head"><span>Açık destek</span><span class="metric-icon amber">✳</span></div><strong id="stat-tickets">—</strong><small><i class="metric-dot amber-dot"></i>Yanıt bekleyen talepler</small><div class="metric-spark spark-amber"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></article>
+      </div>
+      <div class="overview-grid">
+        <section class="surface"><div class="section-heading"><div><p class="eyebrow">CANLI DURUM</p><h3>Aktif kullanıcılar</h3></div><button class="text-action" data-goto="users">Tüm kullanıcılar →</button></div><div id="overview-users" class="compact-list"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div></section>
+        <section class="surface"><div class="section-heading"><div><p class="eyebrow">GELEN KUTUSU</p><h3>Son destek talepleri</h3></div><button class="text-action" data-goto="support">Destek kutusu →</button></div><div id="overview-tickets" class="ticket-preview-list"><div class="skeleton"></div><div class="skeleton"></div><div class="skeleton"></div></div></section>
+      </div>
+      <div class="notice-strip"><span class="notice-icon">i</span><div><b>Veri kapsamı</b><p>Aktiflik açık uygulama oturumlarına göre gösterilir. Tarayıcılar cihazların yerel ağ IP adreslerini güvenilir biçimde sunmadığından bu panel IP adresi toplamaz.</p></div></div>
+    </section>
+    <section class="page-section" id="page-users"><div class="surface page-surface"><div class="section-heading users-heading"><div><p class="eyebrow">HESAP DİZİNİ</p><h3>Kullanıcılar <span id="users-total-label" class="soft-count"></span></h3><p class="subtext">E-posta adresleri yalnızca yetkili yönetici oturumunda gösterilir. Rozet vermek, uyarmak veya banlamak için satıra sağ tıklayın.</p></div><div class="search-box"><span>⌕</span><input id="user-search" type="search" placeholder="Ad, kullanıcı adı veya e-posta ara…" autocomplete="off"></div></div><div class="table-wrap"><table><thead><tr><th>KULLANICI</th><th>E-POSTA</th><th>AKTİFLİK</th><th>KATILIM</th><th>DURUM</th></tr></thead><tbody id="users-table"><tr><td colspan="5" class="empty-cell">Kullanıcılar yükleniyor…</td></tr></tbody></table></div></div></section>
+    <section class="page-section" id="page-servers"><div class="surface page-surface"><div class="section-heading"><div><p class="eyebrow">TOPLULUK ALANLARI</p><h3>Sunucular <span id="servers-total-label" class="soft-count"></span></h3><p class="subtext">Doğrulamak veya rozeti kaldırmak için sunucu kartına sağ tıklayın.</p></div><span class="live-label"><i></i>Güncel</span></div><div id="servers-list" class="server-list"><div class="skeleton"></div><div class="skeleton"></div></div></div></section>
+    <section class="page-section" id="page-support"><div class="support-layout surface"><aside class="support-inbox"><div class="inbox-head"><div><p class="eyebrow">YARDIM MASASI</p><h3>Destek kutusu</h3></div><span id="support-open-count" class="inbox-count">0</span></div><div class="filter-row"><button class="filter-chip active" data-filter="open">Açık</button><button class="filter-chip" data-filter="all">Tümü</button></div><div id="admin-ticket-list" class="admin-ticket-list"><div class="empty-list">Talepler yükleniyor…</div></div></aside><section class="support-thread" id="admin-thread"><div class="thread-empty"><span class="thread-empty-icon">✳</span><h3>Bir talep seçin</h3><p>Kullanıcıların talepleri burada görünür. Yanıt vermek isteğe bağlıdır. 24 saat yanıtsız kalan talepler ve kapatılalı 1 saat geçen talepler otomatik silinir.</p></div></section></div></section>
+     <section class="page-section" id="page-announcements"><div class="surface page-surface"><div class="section-heading announcement-admin-heading"><div><p class="eyebrow">TOPLULUK BİLGİLENDİRMELERİ</p><h3>Duyuru arşivi <span id="announcements-total-label" class="soft-count"></span></h3><p class="subtext">Yayımlanan duyurular tüm kullanıcılara iletilir ve burada kayıtlı kalır.</p></div><button type="button" class="button primary" data-announcement-create>＋ Yeni duyuru</button></div><div id="admin-announcement-list" class="admin-announcement-list"><div class="empty-list">Duyurular yükleniyor…</div></div></div></section>
+     <footer class="footer"><span>Aven Control Center</span><span>Yönetim paneli · Topluluk duyuruları</span></footer>
+  </main>
+</div>
+<div id="toast-region" class="toast-region" aria-live="polite"></div>
+<script src="/admin.js?v=20261014.2" defer></script>
+</body>
+</html>
